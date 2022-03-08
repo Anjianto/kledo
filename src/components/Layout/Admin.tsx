@@ -24,7 +24,7 @@ export const AdminLayout = () => {
             .filter(Boolean)
             .join(" ")}
         >
-          <div className="mb-20 min-h-screen w-full rounded-3xl bg-white p-8 md:py-4 md:px-10 xl:py-6">
+          <div className="relative mb-20 min-h-screen w-full rounded-3xl bg-white p-8 md:py-4 md:px-10 xl:py-6">
             <Outlet />
           </div>
         </main>
