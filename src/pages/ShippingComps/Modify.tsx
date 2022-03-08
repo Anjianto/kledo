@@ -10,8 +10,9 @@ import {
   useDeleteShipping,
   useUpdateShipping,
 } from "src/services/shippings";
+import { Helmet } from "react-helmet-async";
 
-export const ShippingCompsCreate = () => {
+export const ShippingCompsModify = () => {
   const { mutate } = useCreateShipping();
   const { mutate: mutateDelete } = useDeleteShipping();
   const { mutate: mutateUpdate } = useUpdateShipping();
@@ -54,6 +55,9 @@ export const ShippingCompsCreate = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Shipping Comps {id ? "Edit" : "Create"} | Kledo</title>
+      </Helmet>
       <div className="flex flex-col items-center justify-between sm:flex-row">
         <div className="flex items-center">
           <h1 className="text-lg font-bold md:text-2xl">

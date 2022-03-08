@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { DebounceInput } from "react-debounce-input";
+import { Helmet } from "react-helmet-async";
 import {
   Link,
   useLocation,
@@ -46,6 +47,9 @@ export const ShippingComps = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Shipping Comps | Kledo</title>
+      </Helmet>
       <div className="flex flex-col items-center justify-between sm:flex-row">
         <div className="flex">
           <h1 className="whitespace-nowrap text-2xl font-bold">

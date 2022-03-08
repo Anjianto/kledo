@@ -7,7 +7,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Profile } from "./pages/Profile";
 import { Public } from "./pages/Public";
 import { ShippingComps } from "./pages/ShippingComps";
-import { ShippingCompsCreate } from "./pages/ShippingComps/Create";
+import { ShippingCompsModify } from "./pages/ShippingComps/Modify";
 
 function App() {
   return (
@@ -25,8 +25,8 @@ function App() {
           <Route path="/" element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="shippings">
-              <Route path="create" element={<ShippingCompsCreate />} />
-              <Route path=":id" element={<ShippingCompsCreate />} />
+              <Route path="create" element={<ShippingCompsModify />} />
+              <Route path=":id" element={<ShippingCompsModify />} />
               <Route index element={<ShippingComps />} />
             </Route>
           </Route>

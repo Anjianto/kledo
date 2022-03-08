@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useSelector } from "react-redux";
 
 import { RootState } from "src/store";
@@ -7,6 +8,9 @@ export const Dashboard = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Dashboard | Kledo</title>
+      </Helmet>
       <h1 className="text-2xl font-bold">Dashboard</h1>
       <div className="absolute bottom-40 left-10 right-10 top-40 flex flex-col items-center justify-center rounded-lg bg-gray-200 md:left-32 md:right-32">
         <h2 className="text-xl font-bold text-gray-600/70 md:text-4xl">

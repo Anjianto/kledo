@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
-import Cookie from "js-cookie";
+import Cookies from "js-cookie";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +15,12 @@ export const Login = () => {
   const navigate = useNavigate();
   const { mutate } = useLogin();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (Cookies.get("access_token")) {
+      navigate("/");
+    }
+  });
 
   const {
     register,
@@ -41,7 +48,7 @@ export const Login = () => {
         dispatch(setUser(user));
         dispatch(setTokenType(tokenType));
 
-        Cookie.set("access_token", accessToken, {
+        Cookies.set("access_token", accessToken, {
           expires: new Date(expiresAt),
         });
         navigate("/", {
@@ -61,6 +68,9 @@ export const Login = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Login | Kledo</title>
+      </Helmet>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label
