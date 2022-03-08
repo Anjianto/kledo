@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { DebounceInput } from "react-debounce-input";
 import { Helmet } from "react-helmet-async";
@@ -25,18 +25,15 @@ export const ShippingComps = () => {
     if (searchParams.get("q")) {
       setSearch(decodeURIComponent(searchParams.get("q") || ""));
       refetch();
-      return;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // It will make we send our search as soon as possible
   useEffect(() => {
     refetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
 
-  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
     navigate({
       search: e.target.value

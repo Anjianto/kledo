@@ -33,6 +33,7 @@ export const Profile = () => {
       <div className="grid grid-cols-1 xl:grid-cols-12">
         <div className="order-2 col-span-9 mt-10 space-y-10 xl:order-1 xl:mt-0">
           {data.map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <div key={index}>
               <h2 className="block text-lg font-semibold text-gray-500 md:text-xl">
                 {item.title}

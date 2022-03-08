@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Check If the build is success.
+# Why this hook exists? It to prevent build error like wrong path
+npm run build

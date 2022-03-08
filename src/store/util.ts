@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import { createSlice } from "@reduxjs/toolkit";
 
 type InitialState = {
   isSidebarOpen: boolean;

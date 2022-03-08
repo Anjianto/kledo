@@ -9,12 +9,13 @@ const apiBase = axios.create({
 
 apiBase.interceptors.request.use(
   async (config) => {
-    const access_token = Cookies.get("access_token");
+    const accessToken = Cookies.get("access_token");
 
-    if (access_token) {
+    if (accessToken) {
+      // eslint-disable-next-line no-param-reassign
       config.headers = {
         ...config.headers,
-        Authorization: `Bearer ${access_token}`,
+        Authorization: `Bearer ${accessToken}`,
       };
     }
 

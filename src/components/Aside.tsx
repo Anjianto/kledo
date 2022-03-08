@@ -60,6 +60,7 @@ export const Aside = () => {
         <li className="mt-auto">
           <button
             className="mx-auto mt-16 flex w-full items-center justify-center bg-blue-600/80 py-3 text-lg font-medium text-white hover:bg-blue-500"
+            type="button"
             onClick={() => logout()}
           >
             <LogoutIcon className="mr-2 h-8 w-8 stroke-[1.5]" /> Log out

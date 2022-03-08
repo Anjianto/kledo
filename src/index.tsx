@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 
 import { HelmetProvider } from "react-helmet-async";
@@ -23,7 +23,7 @@ const queryClient = new QueryClient({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
@@ -32,7 +32,7 @@ ReactDOM.render(
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </QueryClientProvider>
     </HelmetProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root")
 );
 

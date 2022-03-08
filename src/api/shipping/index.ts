@@ -14,7 +14,7 @@ export const shippingAPI = {
   ): Promise<AxiosResponse<ShippingsResponse>> =>
     apiBase.get(SHIPPING, {
       params: {
-        search: search,
+        search,
       },
     }),
   create: (

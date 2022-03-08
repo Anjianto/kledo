@@ -1,0 +1,20 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Check ESLint Standards
+npx lint-staged ||
+(
+  echo '🙈👷🔨❌ Yoo, your code looks disgusting. Check linter 🙈👷🔨❌
+        Run npx lint-staged, add changes and try commit again.';
+  false;
+)
+
+# If the test passed, we check the formatting
+npx prettier --check . || (
+  echo '🙈👷🔨❌ There is some formatting issues in your codes 🙈👷🔨❌
+        Run npm run format, add changes and try commit again.';
+  false;
+)
+
+# Jika test nya sudah oke, maka perubahan akan di commit
+echo '🎉🎉🎉🎉 Yeayy, there is no error in your code... you are good to go to push your codes. ✨🚀🏄‍♂️🍻'

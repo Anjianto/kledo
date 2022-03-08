@@ -37,14 +37,14 @@ export const Login = () => {
 
   const onSubmit = (data: LoginPayload) => {
     mutate(data, {
-      onSuccess(data) {
-        const currentData = data.data.data;
+      onSuccess(response) {
+        const currentData = response.data.data;
         const tokenData = currentData.data;
         const accessToken = tokenData.access_token;
         const expiresAt = tokenData.expires_at;
         const tokenType = tokenData.token_type;
 
-        const user = currentData.user;
+        const { user } = currentData;
         dispatch(setUser(user));
         dispatch(setTokenType(tokenType));
 
@@ -64,6 +64,7 @@ export const Login = () => {
     });
   };
   const emailRe =
+    // eslint-disable-next-line no-useless-escape
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   return (

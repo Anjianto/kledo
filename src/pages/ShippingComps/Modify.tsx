@@ -38,11 +38,11 @@ export const ShippingCompsModify = () => {
         id,
       });
     }
-    mutate(data);
+    return mutate(data);
   };
 
-  const deleteShipping = (id: string) => {
-    mutateDelete(id);
+  const deleteShipping = (shippingId: string) => {
+    mutateDelete(shippingId);
   };
 
   function closeModal() {
@@ -66,6 +66,7 @@ export const ShippingCompsModify = () => {
           {id ? (
             <button
               onClick={openModal}
+              type="button"
               className="ml-4 flex h-8 w-8 items-center justify-center rounded-full bg-red-600/80 text-white hover:bg-red-500"
             >
               <TrashIcon className="h-5 w-5 text-white" />

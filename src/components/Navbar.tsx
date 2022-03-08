@@ -24,17 +24,21 @@ export const Navbar = () => {
 
   return (
     <nav className="sticky top-0 flex w-full items-center justify-between bg-blue-500 px-4 md:px-8">
-      <button onClick={() => dispatch(toggleSidebar())} className="lg:hidden">
+      <button
+        type="button"
+        onClick={() => dispatch(toggleSidebar())}
+        className="lg:hidden"
+      >
         <MenuIcon className="h-6 w-6 text-white" />
       </button>
       <Link
-        to={{ pathname: !!user ? "/" : "/login" }}
+        to={{ pathname: user ? "/" : "/login" }}
         className="hidden whitespace-nowrap font-bold text-white md:block md:whitespace-normal md:text-2xl lg:block"
       >
-        KLEDO TEST {!!user ? "ADMIN" : ""}
+        KLEDO TEST {user ? "ADMIN" : ""}
       </Link>
       <div className="flex">
-        {!!user ? (
+        {user ? (
           <div className="flex items-center py-4">
             <div className="h-7 w-7 overflow-hidden rounded-full md:h-8 md:w-8">
               <img
