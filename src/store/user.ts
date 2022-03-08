@@ -3,12 +3,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "src/api/auth/auth";
 
 type InitialState = {
-  user: User | {};
+  user: User | null;
   tokenType: string;
 };
 
 const initialState: InitialState = {
-  user: {},
+  user: null,
   tokenType: "",
 };
 
@@ -16,7 +16,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<User>) => {
+    setUser: (state, action: PayloadAction<User | null>) => {
       state.user = action.payload;
     },
     setTokenType: (state, action: PayloadAction<string>) => {
@@ -35,7 +35,7 @@ export const userSlice = createSlice({
       };
     },
     resetUser: (state) => {
-      state.user = {};
+      state.user = null;
     },
     resetTokenType: (state) => {
       state.tokenType = "";
